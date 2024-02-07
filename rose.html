@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Entry</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #87CEEB, #FCE4E6); /* Gradient mix of colors */
+    }
+
+    #nameInput {
+      font-size: 18px;
+    }
+
+    #submitButton {
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #rose {
+      width: 200px;
+    }
+
+    #message {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    #nameEntry, #surprise {
+      background-color: rgba(255, 255, 255, 0.9); /* Background color with opacity */
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #surprise {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="nameEntry">
+    <label for="nameInput">Enter your name:</label>
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button id="submitButton" onclick="openSurprise()">Submit</button>
+  </div>
+
+  <div id="surprise">
+    <img id="rose" src=" https://www.pinterest.com/pin/665266176205876598/.png" alt="Red Rose">
+    <p id="message">Happy Rose Day, <span id="name"></span>! 🌹</p>
+  </div>
+
+  <script>
+    function openSurprise() {
+      const name = document.getElementById('nameInput').value;
+      if (name.trim() !== '') {
+        document.getElementById('nameEntry').style.display = 'none';
+        document.getElementById('surprise').style.display = 'block';
+        document.getElementById('name').innerText = name;
+      } else {
+        alert('Please enter your name.');
+      }
+    }
+  </script>
+</body>
+</html>
